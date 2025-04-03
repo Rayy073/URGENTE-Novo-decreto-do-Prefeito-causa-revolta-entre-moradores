@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me paga um açaí?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #E6D6FF; /* Lilás bem clarinho */
+            color: #663399; /* Roxo escuro */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #aviso {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        
+        #sim {
+            background-color: #9933CC; /* Roxo normal */
+            color: white;
+        }
+        #sim:hover {
+            background-color: #8000CC;
+        }
+        #nao {
+            position: absolute;
+            background-color: #FF6666; /* Vermelho claro */
+            color: white;
+        }
+        #nao:hover {
+            background-color: #FF3333;
+        }
+    </style>
+</head>
+<body>
+    <div id="aviso">Não vai escolher errado, hein 🙄</div>
+    <h1>Me paga um açaí?</h1>
+    <button id="sim" onclick="responderSim()">Sim</button>
+    <button id="nao" onclick="moverBotao()">Não</button>
+    
+    <script>
+        // Faz o aviso sumir após 2 segundos
+        setTimeout(() => {
+            document.getElementById("aviso").style.opacity = "0";
+        }, 2000);
+        
+        function responderSim() {
+            alert("Obrigada, meu amor. Te amo!💙");
+        }
+
+        function moverBotao() {
+            let botaoNao = document.getElementById("nao");
+            let larguraJanela = window.innerWidth - botaoNao.clientWidth;
+            let alturaJanela = window.innerHeight - botaoNao.clientHeight;
+            
+            let novaPosicaoX = Math.random() * larguraJanela;
+            let novaPosicaoY = Math.random() * alturaJanela;
+            
+            botaoNao.style.left = `${novaPosicaoX}px`;
+            botaoNao.style.top = `${novaPosicaoY}px`;
+        }
+    </script>
+</body>
+</html>
